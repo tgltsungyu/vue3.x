@@ -9,17 +9,13 @@
 </head>
 <body>
     <div id="app">
-        <p v-if="books.length == 0">v-if目前沒有任何書籍</p>
-        <h2 v-else-if="books.length == 1">{{books[0]}}</h2>
-        <ul v-else>
-            <li v-for="book in books">{{ book }}</li>
-        </ul>
-
-        <!--v-show會使元素display:none-->
-        <p v-show="books.length == 0">v-show目前沒有任何書籍</p>
-        <ul v-show="books.length > 0">
-            <li v-for="book in books">{{ book }}</li>
-        </ul>
+        <div class="question">
+            <p>問:Vue是一個什麼樣的框架</p>
+            <p v-show="showAnswer" class="answer">
+                答:Vue 是一套用於建構用戶介面的漸進式框架
+            </p>
+            <button @click="showAnswer = !showAnswer">{{showAnswer?"隱藏":"顯示"}}答案</button>
+        </div>
     </div>
     <script src="index.js"></script>
 </body>
