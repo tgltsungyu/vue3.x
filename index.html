@@ -9,10 +9,16 @@
 </head>
 <body>
     <div id="app">
-        <ul>
-            <li v-for="todo, index in todos">
-                    <input type="checkbox" :checked="todo.complete">{{todo.content}}
-            </li>
+        <p v-if="books.length == 0">v-if目前沒有任何書籍</p>
+        <h2 v-else-if="books.length == 1">{{books[0]}}</h2>
+        <ul v-else>
+            <li v-for="book in books">{{ book }}</li>
+        </ul>
+
+        <!--v-show會使元素display:none-->
+        <p v-show="books.length == 0">v-show目前沒有任何書籍</p>
+        <ul v-show="books.length > 0">
+            <li v-for="book in books">{{ book }}</li>
         </ul>
     </div>
     <script src="index.js"></script>
